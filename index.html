@@ -228,19 +228,48 @@
                 </div>
                 <div class="form-row">
                     <div class="columna">
-                        <input type="number" name="telefono" class="form-control bg-secondary" placeholder="Tel. 4495555555" required="required"/>
+                        <input type="tel" name="telefono" class="form-control bg-secondary" placeholder="4495555555" maxlength="10" pattern="[0-9]{10}" required="required"/>
                     </div>
                     <div class="columna">
-                        <input class="form-control bg-secondary" name="tipo" list="tiposs"  required="required" placeholder="Tipo de hospedaje">
-                    </div> 
+	                    <select name="tipo" class="form-control bg-secondary" required>
+						    <option value="">Tipo de hospedaje</option>
+						    <option value="Con autobús">Con autobús</option>
+						    <option value="Sin autobús">Sin autobús</option>
+						</select>
+					</div>
                 </div>
                 <div class="form-row">
-                    <div class="columna">
-                        <input class="form-control bg-secondary" name="invitados" list="invitadoss"  required="required" placeholder="Total de Invitados">
-                    </div>
-                    <div class="columna">
-                        <input class="form-control bg-secondary" name="menores" list="menoress"  required="required" placeholder="Número de Menores">
-                    </div>                                
+                	<div class="columna">
+	                    <select name="invitados" class="form-control bg-secondary" required>
+						    <option value="">Total de Invitados</option>
+						    <option value="1">1</option>
+						    <option value="2">2</option>
+						    <option value="3">3</option>
+						    <option value="4">4</option>
+						    <option value="5">5</option>
+						    <option value="6">6</option>
+						    <option value="7">7</option>
+						    <option value="8">8</option>
+						    <option value="9">9</option>
+						    <option value="10">10</option>
+						</select>
+					</div>
+					<div class="columna">
+	                    <select name="menores" class="form-control bg-secondary" required>
+						    <option value="">Número de Menores</option>
+						    <option value="0">0</option>
+						    <option value="1">1</option>
+						    <option value="2">2</option>
+						    <option value="3">3</option>
+						    <option value="4">4</option>
+						    <option value="5">5</option>
+						    <option value="6">6</option>
+						    <option value="7">7</option>
+						    <option value="8">8</option>
+						    <option value="9">9</option>
+						    <option value="10">10</option>
+						</select>
+					</div>                               
                 </div>
                 <div class="form-row">
                 	<div class="columna2">
@@ -251,23 +280,6 @@
                     <input class="btn btn-primary" type="submit" id="button" value="Enviar Confirmación" >
                 </div>
             </form>
-            <datalist id="tiposs">
-                <option>Con autobús</option>
-                <option>Sin autobús</option>
-            </datalist>
-            <datalist id="invitadoss">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </datalist>
-            <datalist id="menoress">
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-            </datalist>
             <script type="text/javascript"
                 src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
 			</script>
@@ -279,20 +291,35 @@
 		<br></br>
 		<div>
 			<div style="font-family: 'Montserrat'; font-size: 1.5rem;font-weight: 300;line-height: 1.2; color:black; width:70%; margin: auto;">
-				Con el fin de que su asistencia quede registrada es necesario realizar un apartado de $500 a mas tardar el día 30 de noviembre del 2023 al número de cuenta:
+				Con el fin de que su asistencia quede registrada, es necesario realizar un apartado de $500 a mas tardar el día 30 de noviembre del 2023 a alguno de los siguientes numeros de cuenta BBVA:
 			</div>
 			<br></br>
 			<div style="font-family: 'Montserrat'; font-size: 1.5rem;font-weight: 300;line-height: 1.2; color:black; width:70%; margin: auto;">
-				<b>016985346558762456</b>
+				<table style="border:2px solid #ced4da !important; border-spacing: 15px !important; ">
+				  <colgroup span="2" class="columns"></colgroup>
+				  <tr>
+				    <td>Cuenta a nombre de Brenda Susana Romero:</td>
+				    <td>Cuenta a nombre de Alan Emmanuel Escalera:</td>
+				  </tr>
+				  <tr>
+				    <th>154 454 2703</th>
+				    <th>154 515 6742</th>
+				  </tr>
+				  <tr>
+				    <td>Teléfono 1:</td>
+				    <td>Teléfono 2:</td>
+				  </tr>
+				  <tr>
+				    <th>465-106-7970</th>
+				    <th>465-128-4077</th>
+				  </tr>
+				</table>
 			</div>
 			<br></br>
 			<div style="font-family: 'Montserrat'; font-size: 1.5rem;font-weight: 300;line-height: 1.2; color:black; width:70%; margin: auto;">
-				Cualquier duda o aclaración pueden consultarla a los siguientes numeros:
+				Favor de enviar el comprobante de transferencia a los numeros anteriores, mismos que quedan a disposición para cualquier duda o aclaración.
 			</div>
 			<br></br>
-			<div style="font-family: 'Montserrat'; font-size: 1.5rem;font-weight: 300;line-height: 1.2; color:black; width:70%; margin: auto;">
-				<b>465-106-7970  y  465-128-4077</b>
-			</div>
 			<br></br>
 			<br></br>
         </div>    
@@ -347,23 +374,23 @@
 		});
     </script>
 	<script type="text/javascript">
-    const btn = document.getElementById('button');
+	    const btn = document.getElementById('button');
 
-    document.getElementById('form').addEventListener('submit', function(event) {
-       event.preventDefault();
+	    document.getElementById('form').addEventListener('submit', function(event) {
+	       event.preventDefault();
 
-       btn.value = 'Enviando confirmación...';
-       const serviceID = 'default_service';
-       const templateID = 'template_dkkokzb';
+	       btn.value = 'Enviando confirmación...';
+	       const serviceID = 'default_service';
+	       const templateID = 'template_dkkokzb';
 
-        emailjs.sendForm(serviceID, templateID, this).then(() => {
-            btn.value = 'Enviar Confirmación';
-            alert('Confirmación enviada!');
-        }, (err) => {
-            btn.value = 'Enviar Confirmación';
-            alert(JSON.stringify(err));
-        });
-    });
-</script>
+	        emailjs.sendForm(serviceID, templateID, this).then(() => {
+	            btn.value = 'Enviar Confirmación';
+	            alert('Confirmación enviada!');
+	        }, (err) => {
+	            btn.value = 'Enviar Confirmación';
+	            alert(JSON.stringify(err));
+	        });
+	    });
+	</script>
 </body>
 </html>
